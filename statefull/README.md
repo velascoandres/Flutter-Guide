@@ -89,7 +89,7 @@ class MiAplicacion extends StatelessWidget {
 ```
 
 ## Obtener datos del widget desde la clase State
-Digamos que tenemos un widget que recibe datos desde el constructor y queremos usar esa informacion en la clase State`.
+Digamos que tenemos un widget que recibe datos desde el constructor y queremos usar esa informacion en la clase `State`.
 
 ```dart
 class CabeceraTexto extends StatefulWidget {
@@ -109,7 +109,7 @@ Ahora para acceder al atributo `titulo` usamos el atributo `widget` que esta en 
       @override
       Widget build(BuildContext context) {
 
-        const titulo = wdiget.titulo;    
+        const titulo = widget.titulo;    
 
         return Center(
         child: Text("$titulo")
