@@ -1,4 +1,4 @@
-# Statefull Widget
+# Stateful Widget
 
 Es un widget en donde su estado es mutable, en otras palabras
 a diferencia de de los `Stateless Widgets` que son estaticos en cuando
@@ -89,7 +89,7 @@ class MiAplicacion extends StatelessWidget {
 ```
 
 ## Obtener datos del widget desde la clase State
-Digamos que tenemos un widget en donde le mandamos datos desde el constructor y queremos usar esos datos la clase State para hacer algo.
+Digamos que tenemos un widget que recibe datos desde el constructor y queremos usar esa informacion en la clase State`.
 
 ```dart
 class CabeceraTexto extends StatefulWidget {
@@ -118,6 +118,6 @@ Ahora para acceder al atributo `titulo` usamos el atributo `widget` que esta en 
 }
 ``` 
 
-> Dato de vital importanca:
+> Dato de vital importancia:
 
 La funcion `setState` solamente se puede usar en widget con estado (`Stateful`)
