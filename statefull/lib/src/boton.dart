@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MyButton extends StatefulWidget {
+  final String texto;
+  MyButton({this.texto = ''});
   @override
   _MyButtonState createState() => _MyButtonState();
 }
@@ -10,16 +12,16 @@ class _MyButtonState extends State<MyButton> {
   int indice = 0;
   List<String> colecciones = ['Flutter', 'es', 'genial'];
 
-  void onPressButton(){
-    setState(() { // Vuelve a renderizar el widget
+  void onPressButton() {
+    setState(() {
+      // Vuelve a renderizar el widget
       flutterText = colecciones[indice];
       indice++;
-      if (indice > colecciones.length -1){
+      if (indice > colecciones.length - 1) {
         indice = 0;
-      }  
+      }
     });
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -60,3 +62,4 @@ class _MyButtonState extends State<MyButton> {
     );
   }
 }
+
