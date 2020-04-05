@@ -6,6 +6,15 @@ class Home extends StatelessWidget {
   static final String nombreRuta = '/home';
 
   Drawer obtenerDrawer(BuildContext context) {
+    var header = DrawerHeader(child: Text('Ajustes'));
+    var about = AboutListTile(
+      child: Text('Acerca de la aplicacion'),
+      applicationIcon: Icon(
+        Icons.favorite,
+      ),
+      applicationVersion: "v1.1.0",
+      icon: Icon(Icons.favorite_border),
+    );
     ListTile obtenerListTile(Icon icono, String descripcion, String ruta) {
       return ListTile(
         leading: icono,
@@ -20,11 +29,13 @@ class Home extends StatelessWidget {
     ListView obtenerLista() {
       return ListView(
         children: <Widget>[
+          header,
           obtenerListTile(
               Icon(Icons.settings), 'Settings', Settings.nombreRuta),
           obtenerListTile(Icon(Icons.home), 'Home', Home.nombreRuta),
           obtenerListTile(
               Icon(Icons.battery_alert), 'Bateria', Bateria.nombreRuta),
+          about,
         ],
       );
     }
