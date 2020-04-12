@@ -3,14 +3,14 @@ import 'package:flutter/widgets.dart';
 class AuthRepositorio {
   String _token = '';
   // Metodo para obtener el token
-  Future<String> autenticar({
-    @required String nombreUsuario,
+  Future<void> autenticar({
+    @required String email,
     @required String password,
   }) async {
     // simular peticion http
     await Future.delayed(Duration(seconds: 1));
     this._token = 'token_generado';
-    return 'token-generado';
+    return;
   }
 
   // Borrar el token

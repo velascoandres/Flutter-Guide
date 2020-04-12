@@ -12,7 +12,7 @@ class ApplicacionInicializada extends AuthEvent{}
 class Logeado extends AuthEvent{
   final String token;
 
-  const Logeado({@required this.token});
+  const Logeado({this.token});
   
   @override
   List<Object> get props => [token];

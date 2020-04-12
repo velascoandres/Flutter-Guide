@@ -24,7 +24,6 @@ class PantallaLogin extends StatelessWidget {
         create: (BuildContext context) {
           return LoginBloc(
             authRepositorio: this.authRepositorio,
-            authBloc: BlocProvider.of<AuthBloc>(context),
           );
         },
         child: FormularioLogin(),
