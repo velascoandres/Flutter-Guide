@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'dart:async';
 import 'package:equatable/equatable.dart';
-import 'package:login_bloc_2/src/blocs/auth_bloc/auth_bloc.dart';
 import 'package:login_bloc_2/src/blocs/validadores/usuario_validatores.dart';
 import 'package:login_bloc_2/src/repositorios/auth_repositorio.dart';
 import 'package:meta/meta.dart';
@@ -16,6 +15,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> with UsuarioValidadores {
   LoginBloc({
     @required this.authRepositorio,
   }) : assert(authRepositorio != null);
+  
   @override
   LoginState get initialState => LoginState.vacio();
 

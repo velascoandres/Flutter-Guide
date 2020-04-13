@@ -1,12 +1,21 @@
 import 'package:flutter/widgets.dart';
 
 class Usuario {
-  String nombre;
+  int id;
+  String nombres;
+  String apellidos;
   String correo;
-  String nombreUsuario;
+  String telefono;
+  String fechaNacimiento;
+  String password;
+
   Usuario({
-    @required nombre,
-    @required correo,
-    @required nombreUsuario,
+    @required this.correo,
+    @required this.nombres,
+    @required this.apellidos,
+    @required this.telefono,
+    @required this.fechaNacimiento,
+    this.password,
+    this.id,
   });
 }
