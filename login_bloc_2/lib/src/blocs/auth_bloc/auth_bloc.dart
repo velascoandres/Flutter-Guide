@@ -40,6 +40,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       yield AuthCargando();
       await authRepositorio.borrarToken();
       yield AuthSinAutentificar();
-    }
+    }Logeado
   }
 }

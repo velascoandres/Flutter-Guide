@@ -51,7 +51,6 @@ class _FormularioLoginState extends State<FormularioLogin> {
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginState>(
       listener: (BuildContext context, LoginState state) {
-        print('el estado $state');
         if (state.estaFallido) {
           Scaffold.of(context).showSnackBar(
             SnackBar(
