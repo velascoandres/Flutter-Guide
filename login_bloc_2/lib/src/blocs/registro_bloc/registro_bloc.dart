@@ -50,13 +50,13 @@ class RegistroBloc extends Bloc<RegistroEvent, RegistroState>
       yield* this._mapCambioEmailToState(evento.correo);
     }
     if (evento is CambioTelefono) {
-      yield* this._mapCambioNombresToState(evento.telefono);
+      yield* this._mapCambioTelefono(evento.telefono);
     }
     if (evento is CambioNombres) {
-      yield* this._mapCambioApellidosToState(evento.nombres);
+      yield* this._mapCambioNombresToState(evento.nombres);
     }
     if (evento is CambioApellidos) {
-      yield* this._mapCambioTelefono(evento.apellidos);
+      yield* this._mapCambioApellidosToState(evento.apellidos);
     }
     if (evento is CambioFechaNacimiento) {
       yield* this._mapCambioFechaNacimiento(evento.fechaNacimiento);

@@ -14,7 +14,7 @@ class RegistroPantalla extends StatelessWidget {
         create: (BuildContext contexto) {
           return RegistroBloc();
         },
-        child: Container(
+        child: SingleChildScrollView(
           child: Center(
             child: FormularioRegistro(),
           ),

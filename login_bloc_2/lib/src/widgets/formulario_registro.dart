@@ -85,7 +85,8 @@ class _FormularioRegistroState extends State<FormularioRegistro> {
 
   Widget _generarBotonSubmit(RegistroState state) {
     return RaisedButton(
-      onPressed: estaHabilitadoBotonRegistrar(state) ? _presionarBotonRegistrar : null,
+      onPressed:
+          estaHabilitadoBotonRegistrar(state) ? _presionarBotonRegistrar : null,
       child: Text('Registrar'),
       color: Colors.greenAccent,
     );
@@ -106,6 +107,8 @@ class _FormularioRegistroState extends State<FormularioRegistro> {
         }
         if (state.estaExitoso) {
           BlocProvider.of<AuthBloc>(context).add(Logeado());
+          //mostrarSnackBar(context: context, mensaje: 'Registrado !!');
+          Navigator.pop(context);
         }
 
         if (state.estaFallido) {
@@ -154,7 +157,7 @@ class _FormularioRegistroState extends State<FormularioRegistro> {
                   context: context,
                   listenerCb: _escucharFecha,
                   textoAyuda: 'Ingrese su fecha de nacimiento',
-                  textoLabel: 'Apellidos',
+                  textoLabel: 'Fecha',
                   valorEstado: state.fechaNacimientoValida,
                   controlador: _fechaController,
                 ),

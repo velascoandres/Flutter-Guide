@@ -27,7 +27,7 @@ class RegistroState  {
     }
   );
 
-  bool get estaFormularioValido => emailValido != '' && passwordValido != '' && apellidosValidos != '' && telefonoValido != '' && fechaNacimientoValida != '';
+  bool get estaFormularioValido => emailValido == '' && passwordValido == '' && apellidosValidos == '' && telefonoValido == '' && fechaNacimientoValida == '';
 
   factory RegistroState.vacio() {
     return RegistroState(

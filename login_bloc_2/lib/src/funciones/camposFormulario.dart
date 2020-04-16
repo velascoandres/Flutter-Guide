@@ -17,7 +17,7 @@ Widget generarCampoCorreo({
     keyboardType: TextInputType.emailAddress,
     onChanged: listenerCb,
     validator: (_) {
-      return valorEstado ? null : 'Email incorrecto';
+      return valorEstado != '' ? valorEstado : null;
     },
   );
 }
@@ -38,7 +38,7 @@ Widget generarCampoPassword({
     obscureText: true,
     onChanged: listenerCb,
     validator: (_) {
-      return valorEstado != '' ? valorEstado : '';
+      return valorEstado != '' ? valorEstado : null;
     },
   );
 }
@@ -64,7 +64,7 @@ Widget generarCampoNumerico({
     onChanged: listenerCb,
     keyboardType: esTelefono ? TextInputType.phone : TextInputType.number,
     validator: (_) {
-      return valorEstado != '' ? valorEstado : '';
+      return valorEstado != '' ? valorEstado : null;
     },
   );
 }
@@ -90,7 +90,7 @@ Widget generarCampoTexto({
     keyboardType: textoLargo ? TextInputType.multiline : TextInputType.text,
     autocorrect: false,
     validator: (_) {
-      return valorEstado != '' ? valorEstado : '';
+      return valorEstado != '' ? valorEstado : null;
     },
   );
 }
@@ -115,7 +115,8 @@ Widget generarCampoFecha({
           labelText: textoLabel,
         ),
         onTap: () async {
-          fecha = (await obtenerFecha(context)) as String;
+          fecha = (await obtenerFecha(context)).toString();
+          controlador.text = fecha;
         },
         autocorrect: false,
         autovalidate: true,
@@ -123,7 +124,7 @@ Widget generarCampoFecha({
         initialValue: fecha,
         onChanged: listenerCb,
         validator: (_) {
-          return valorEstado != '' ? valorEstado : '';
+          return valorEstado != '' ? valorEstado : null;
         },
       ),
     ],
