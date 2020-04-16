@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 Widget generarCampoCorreo({
- @required dynamic valorEstado,
- @required Function listenerCb,
+  @required dynamic valorEstado,
+  @required Function listenerCb,
+  @required TextEditingController controlador,
 }) {
   return TextFormField(
     decoration: InputDecoration(
@@ -12,6 +13,7 @@ Widget generarCampoCorreo({
     ),
     autovalidate: true,
     autocorrect: false,
+    controller: controlador,
     keyboardType: TextInputType.emailAddress,
     onChanged: listenerCb,
     validator: (_) {
@@ -22,7 +24,8 @@ Widget generarCampoCorreo({
 
 Widget generarCampoPassword({
   @required dynamic valorEstado,
-  @required  Function listenerCb,
+  @required Function listenerCb,
+  @required TextEditingController controlador,
 }) {
   return TextFormField(
     decoration: InputDecoration(
@@ -31,10 +34,11 @@ Widget generarCampoPassword({
     ),
     autovalidate: true,
     autocorrect: false,
+    controller: controlador,
     obscureText: true,
     onChanged: listenerCb,
     validator: (_) {
-      return valorEstado ? null : 'Password no valida';
+      return valorEstado != '' ? valorEstado : '';
     },
   );
 }
@@ -43,8 +47,8 @@ Widget generarCampoNumerico({
   @required dynamic valorEstado,
   @required String textoLabel,
   @required String textoAyuda,
-  @required String textoError,
   @required Function listenerCb,
+  @required TextEditingController controlador,
   bool esTelefono = true,
   String valorInicial,
 }) {
@@ -54,12 +58,13 @@ Widget generarCampoNumerico({
       hintText: textoAyuda,
     ),
     autovalidate: true,
+    controller: controlador,
     initialValue: valorInicial,
     autocorrect: false,
     onChanged: listenerCb,
     keyboardType: esTelefono ? TextInputType.phone : TextInputType.number,
     validator: (_) {
-      return valorEstado ? null : textoError;
+      return valorEstado != '' ? valorEstado : '';
     },
   );
 }
@@ -68,8 +73,8 @@ Widget generarCampoTexto({
   @required dynamic valorEstado,
   @required String textoLabel,
   @required String textoAyuda,
-  @required String textoError,
   @required Function listenerCb,
+  @required TextEditingController controlador,
   bool textoLargo = false,
   String valorInicial,
 }) {
@@ -80,11 +85,12 @@ Widget generarCampoTexto({
     ),
     autovalidate: true,
     initialValue: valorInicial,
+    controller: controlador,
     onChanged: listenerCb,
     keyboardType: textoLargo ? TextInputType.multiline : TextInputType.text,
     autocorrect: false,
     validator: (_) {
-      return valorEstado ? null : textoError;
+      return valorEstado != '' ? valorEstado : '';
     },
   );
 }
@@ -95,6 +101,7 @@ Widget generarCampoFecha({
   @required String textoLabel,
   @required String textoAyuda,
   @required Function listenerCb,
+  @required TextEditingController controlador,
   String valorInicial,
 }) {
   var fecha = valorInicial != null ? valorInicial : null;
@@ -112,8 +119,12 @@ Widget generarCampoFecha({
         },
         autocorrect: false,
         autovalidate: true,
+        controller: controlador,
         initialValue: fecha,
         onChanged: listenerCb,
+        validator: (_) {
+          return valorEstado != '' ? valorEstado : '';
+        },
       ),
     ],
   );
