@@ -33,3 +33,7 @@ class AuthAuntentificado extends AuthState {}
 // sinAutenticar
 class AuthSinAutentificar extends AuthState {}
 
+// Confirmacion del correo
+class AuthEsperandoConfirmacionCorreo extends AuthState {}
+
+

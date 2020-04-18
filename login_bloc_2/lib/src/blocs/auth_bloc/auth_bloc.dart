@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:login_bloc_2/src/modelos/usuario_model.dart';
 import 'package:meta/meta.dart';
 import 'package:login_bloc_2/src/repositorios/auth_repositorio.dart';
 part 'auth_event.dart';
@@ -40,6 +41,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       yield AuthCargando();
       await authRepositorio.borrarToken();
       yield AuthSinAutentificar();
+    }
+
+    if (evento is UsuarioRegistrado){
+      yield AuthCargando();
+      await authRepositorio.registrarUsuario(evento.usuario);
+      yield AuthEsperandoConfirmacionCorreo();
+    }
+
+    if (evento is RegistroUsuarioConfirmado){
+      yield AuthCargando();
+      await authRepositorio.establecerLogin();
+      yield AuthAuntentificado();
     }
   }
 }
