@@ -6,7 +6,6 @@ part of 'auth_bloc.dart';
 // sinAutenticar
 // autentificado
 
-
 // Ejemplo:
 
 // Si el estado de autentificacion fue ininicializada, el usuario puede estar viendo pantalla splash.
@@ -16,6 +15,7 @@ part of 'auth_bloc.dart';
 
 abstract class AuthState extends Equatable {
   const AuthState();
+
   @override
   List<Object> get props => [];
 }
@@ -27,7 +27,7 @@ class AuthSinInicializar extends AuthState {}
 // cargando
 class AuthCargando extends AuthState {}
 
-// Autentificado 
+// Autentificado
 class AuthAuntentificado extends AuthState {}
 
 // sinAutenticar
@@ -36,4 +36,11 @@ class AuthSinAutentificar extends AuthState {}
 // Confirmacion del correo
 class AuthEsperandoConfirmacionCorreo extends AuthState {}
 
+// Confirmacion del correo
+class AuthInformacionUsuarioRechazada extends AuthState {}
 
+// Fallo al intenter logear
+class AuthFalloLogin extends AuthState {}
+
+// Codigo incorrecto o expirado
+class AuthCodigoExpirado extends AuthState {}

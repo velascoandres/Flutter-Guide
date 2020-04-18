@@ -39,6 +39,7 @@ class UsuarioRegistrado extends AuthEvent {
 // Cuando se confirma el registro
 class RegistroUsuarioConfirmado extends AuthEvent {
   final String codigoConfirmacion;
+
   RegistroUsuarioConfirmado({@required this.codigoConfirmacion});
 
   @override
